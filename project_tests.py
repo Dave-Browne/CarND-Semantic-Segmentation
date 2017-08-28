@@ -40,7 +40,7 @@ def _assert_tensor_shape(tensor, shape, display_name):
 
 class TmpMock(object):
     """
-    Mock a attribute.  Restore attribute when exiting scope.
+    Mock an attribute. Restore attribute when exiting scope.
     """
     def __init__(self, module, attrib_name):
         self.original_attrib = deepcopy(getattr(module, attrib_name))
@@ -115,8 +115,8 @@ def test_train_nn(train_nn):
     epochs = 1
     batch_size = 2
 
-    def get_batches_fn(batach_size_parm):
-        shape = [batach_size_parm, 2, 3, 3]
+    def get_batches_fn(batch_size_parm):
+        shape = [batch_size_parm, 2, 3, 3]
         return np.arange(np.prod(shape)).reshape(shape)
 
     train_op = tf.constant(0)
